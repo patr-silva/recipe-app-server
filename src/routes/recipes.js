@@ -10,6 +10,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const response = await Recipe.find({});
+    //console.log(response);
     res.json(response);
   } catch (error) {
     res.json(error);
@@ -72,6 +73,7 @@ router.get("/details/:recipeId", async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.recipeId);
     res.json({ recipe });
+    console.log(recipe)
   } catch (error) {
     res.json(error);
   }
